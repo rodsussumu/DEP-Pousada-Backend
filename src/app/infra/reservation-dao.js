@@ -7,7 +7,7 @@ class ReservationDao {
         return new Promise((resolve, reject) => {
             this._db.all('SELECT * FROM reservation',
             (err, result) => {
-                if(err) return reject('Não foi possivel listar as reservas.')
+                if(err) return reject('Não foi possivel listar as reservas.');
                 return resolve(result);
             }
             );
@@ -16,11 +16,11 @@ class ReservationDao {
 
     countTipo(tipo) {
         return new Promise((resolve, reject) => {
-            this._db.all('SELECT count(*) FROM reservation WHERE tipo = ?',
+            this._db.all('SELECT count(tipo) as quantidade FROM reservation WHERE tipo = ?',
             [tipo],
             (err, result) => {
-                if(err) return reject('Não foi possivel listar as reservas.')
-                return resolve(result);
+                if(err) return reject('Não foi possivel listar as reservas.');
+                return resolve(result[0]);
             }
             );
         });

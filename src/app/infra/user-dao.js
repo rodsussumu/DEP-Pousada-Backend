@@ -7,7 +7,7 @@ class UserDao {
         return new Promise((resolve, reject) => {
             this._db.all('SELECT * FROM users',
             (err, result) => {
-                if(err) return reject('Não foi possivel listar o feedback dos usuários.')
+                if(err) return reject('Não foi possivel listar o feedback dos usuários.');
                 return resolve(result);
             }
             );
