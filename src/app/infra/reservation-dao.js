@@ -14,6 +14,18 @@ class ReservationDao {
         });
     }
 
+    countTipo(tipo) {
+        return new Promise((resolve, reject) => {
+            this._db.all('SELECT count(*) FROM reservation WHERE tipo = ?',
+            [tipo],
+            (err, result) => {
+                if(err) return reject('Não foi possivel listar as reservas.')
+                return resolve(result);
+            }
+            );
+        });
+    }
+
     save(reservation) {
         return new Promise((resolve, reject) => {
             this._db.run(`
@@ -36,6 +48,24 @@ class ReservationDao {
                 if (err) {
                     console.error(err);
                     return reject('Não foi possível fazer a sua reserva.');
+                }
+                resolve();
+            })
+        });
+    }
+
+    delete(id) {
+        return new Promise((resolve, reject) => {
+            this._db.run(`
+                DELETE 
+                FROM reservation 
+                WHERE id = ?
+            `,
+            [ id ],
+            (err) => {
+                if (err) {
+                    console.error(err);
+                    return reject('Não foi possível excluir a reserva.');
                 }
                 resolve();
             })
