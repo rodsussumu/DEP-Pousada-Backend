@@ -110,6 +110,7 @@ dist
 
 #SQLite 3
 .data.db
+data.db
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test

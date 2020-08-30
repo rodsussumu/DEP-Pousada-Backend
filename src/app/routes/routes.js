@@ -4,7 +4,7 @@ module.exports = app => {
         .get(app.app.api.users.viewFeedback)
         .post(app.app.api.users.sendFeedback)
 
-    app.route('/reserva')
+    app.route('/reservas')
         .get(app.app.api.reservation.getReservation)
         .post(app.app.api.reservation.sendReservation)
 
