@@ -7,4 +7,7 @@ module.exports = app => {
     app.route('/reserva')
         .get(app.src.app.api.reservation.getReservation)
         .post(app.src.app.api.reservation.sendReservation)
+
+    app.route('/reserva/:id')
+        .delete(app.src.app.api.reservation.delReservation)
 }

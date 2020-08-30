@@ -14,14 +14,12 @@ module.exports = app => {
 
         if(tipo === 1) {
             const countVips = await dao.countTipo(1);
-            console.log(countVips.quantidade)
             if(countVips.quantidade >= 5) return res.send("Não temos mais quartos vip disponiveis no momento.");
             await dao.save(req.body)
             .then(resp => res.send("Sucesso!!!!!!"))
             .catch(err => res.send(err));
         } else{
             const countApartamento = await dao.countTipo(2);
-            console.log(countApartamento.quantidade)
             if(countApartamento.quantidade >= 10) return res.send("Não temos mais apartamentos disponiveis no momento.");
             await dao.save(req.body)
             .then(resp => res.send("Sucesso!!!!!!"))
@@ -36,5 +34,14 @@ module.exports = app => {
         .catch(err => res.send(err));
     }
 
-    return {sendReservation, getReservation}
+    const delReservation = async(req, res) => {
+        const {id} = req.params;
+        const dao = new ReservationDao(db);
+        await dao.delete(id)
+        .then(resp => res.send("Reserva deletada com sucesso!"))
+        .catch(err => res.send(err))
+        res.send(id);
+    }
+
+    return {sendReservation, getReservation, delReservation}
 }
