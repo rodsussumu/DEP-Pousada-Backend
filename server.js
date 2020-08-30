@@ -1,8 +1,7 @@
 const app = require('./src/config/express');
 
-const hostname = 'localhost';
-const port = 3000;
+const port = process.env.PORT || 3333
 
-app.listen(port, hostname, () => {
-    console.log(`Server is running at http://${hostname}:${port}.`);
+app.listen(port, () => {
+    console.log(`Backend rodando na porta ${port}`);
 });
