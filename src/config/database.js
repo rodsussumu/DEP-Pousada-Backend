@@ -15,7 +15,7 @@ const RESERVATION_SCHEMA = `
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         tipo TEXT NOT NULL,
-        data_chegada DATE NOT NULL,
+        data_chegada TEXT NOT NULL,
         data_saida TEXT NOT NULL,
         valor TEXT NOT NULL
     )
