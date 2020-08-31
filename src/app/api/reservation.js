@@ -8,7 +8,7 @@ module.exports = app => {
 
         if(!nome || !tipo || !data_chegada || !data_saida || !valor)  return res.send("Todos os campos devem ser preenchidos");
 
-        if(data_chegada > data_saida) return res.send("Insira uma data de saida deve ser maior que a de entrada");
+        if(data_chegada > data_saida) return res.send("Data de saida deve ser maior que a de entrada");
 
         const dao = new ReservationDao(db);
 
