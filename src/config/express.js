@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 consign({cwd: 'src'})
     .include('/app/api')
-    .then('/config/database.js')
     .then('/app/routes')
     .into(app)
 
