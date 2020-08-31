@@ -6,11 +6,11 @@ module.exports = app => {
     const sendFeedback = async(req, res) => {
         const {nome, email, mensagem} = req.body;
         if(!nome || !email || !mensagem) {
-            return res.send("Todos os campos precisam estar preenchidos");
+            return res.status(400).send("Todos os campos precisam estar preenchidos");
         }
         const dao = new UserDao(db);
         dao.save(req.body)
-            .then(resp => res.send("Sucesso!!!!!"))
+            .then(resp => res.send("Sucesso, sua duvida/feedback será analisado por nossa equipe."))
             .catch(err => res.send(err));
     }
 

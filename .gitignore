@@ -109,6 +109,7 @@ dist
 .tern-port
 
 #SQLite 3
+.data.db
 data.db
 
 # Stores VSCode versions used for testing VSCode extensions
