@@ -7,10 +7,14 @@
 - Rodrigo Sussumu Tanaka - RM83888
 
 ## Instalando dependencias
-* npm install
+```bash
+npm install
+```
 
 ## Executando projeto
-* npm start
+```bash
+npm start
+```
 
 ## Outras observações
 * Backend hospedado no heroku : https://pousada-cative.herokuapp.com/
