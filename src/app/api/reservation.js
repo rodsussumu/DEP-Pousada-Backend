@@ -21,7 +21,7 @@ module.exports = app => {
         console.log(twoDaysAfter)
         console.log(transformDataSaida)
 
-        if(transformDataSaida <= twoDaysAfter) return res.send("Data de saida deve ser pelo menos 2 dias da data de chegada")
+        if(transformDataSaida < twoDaysAfter) return res.send("Data de saida deve ser pelo menos 2 dias da data de chegada")
 
         const dao = new ReservationDao(db);
 
