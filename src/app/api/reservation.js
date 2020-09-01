@@ -16,8 +16,8 @@ module.exports = app => {
 
         if(transformDataChegada > transformDataSaida) return res.send("Data de saida deve ser maior que a de entrada");
 
-        let twoDaysAfter = transformDataChegada
-        twoDaysAfter.setDate(transformDataChegada.getDate() + 2)
+        let twoDaysAfter = new Date(partsChegada[2], partsChegada[1] - 1, partsChegada[0])
+        twoDaysAfter.setDate(twoDaysAfter.getDate() + 2)
         console.log(transformDataChegada)
         console.log(transformDataSaida)
         console.log(twoDaysAfter)
