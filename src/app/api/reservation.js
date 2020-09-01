@@ -13,9 +13,15 @@ module.exports = app => {
 
         const partsSaida =data_saida.split('/');
         const transformDataSaida = new Date(partsSaida[2], partsSaida[1] - 1, partsSaida[0])
-        console.log(transformDataSaida)
 
         if(transformDataChegada > transformDataSaida) return res.send("Data de saida deve ser maior que a de entrada");
+
+        let twoDaysAfter = new Date()
+        twoDaysAfter.setDate(transformDataChegada.getDate() + 2)
+        console.log(twoDaysAfter)
+        console.log(transformDataSaida)
+
+        if(transformDataSaida <= twoDaysAfter) return res.send("Data de saida deve ser pelo menos 2 dias da data de chegada")
 
         const dao = new ReservationDao(db);
 
