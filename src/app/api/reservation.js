@@ -8,7 +8,14 @@ module.exports = app => {
         console.log(req.body)
         if(!nome || !tipo || !data_chegada || !data_saida || !valor)  return res.send("Todos os campos devem ser preenchidos");
 
-        if(data_chegada > data_saida) return res.send("Data de saida deve ser maior que a de entrada");
+        const partsChegada =data_chegada.split('/');
+        const transformDataChegada = new Date(partsChegada[2], partsChegada[1] - 1, partsChegada[0])
+
+        const partsSaida =data_saida.split('/');
+        const transformDataSaida = new Date(partsSaida[2], partsSaida[1] - 1, partsSaida[0])
+        console.log(transformDataSaida)
+
+        if(transformDataChegada > transformDataSaida) return res.send("Data de saida deve ser maior que a de entrada");
 
         const dao = new ReservationDao(db);
 
