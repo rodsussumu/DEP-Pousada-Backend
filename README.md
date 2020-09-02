@@ -18,4 +18,4 @@ npm start
 
 ## Outras observações
 * Backend hospedado no heroku : https://pousada-cative.herokuapp.com/
-* Arquivo postman com todas as requisições
+* Arquivo postman com todas as requisições : nac-dep.postman_collection.json
